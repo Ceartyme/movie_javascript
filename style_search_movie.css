@@ -1,0 +1,107 @@
+html{
+    --french_violet : #8000B6;
+    --light_purple : #9462FF;
+    --lighter_purple : #C4A8FF;
+    --neon_blue : #0062FF;
+    --blue : #0088FF;
+    --white : #FFFFFF;
+    --light_blue : #0075FF;
+    --light_gray : #D9D9D9;
+    --black : #000000;
+
+
+    scroll-behavior: smooth;
+}
+.movie_box{
+    position: relative;
+}
+.movie_poster{
+    max-width: 200px;
+    max-height: 300px;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30px;
+}
+
+.movie_box:hover .first_part_box.box_part{
+    background: var(--lighter_purple);
+    transform: translateY(0);
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.8);
+}
+.movie_box:hover .second_part_box.box_part{
+    transform: translateY(0);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+.box_part{
+    width: 300px;
+    height: 200px;
+    transition: 0.5s;
+}
+
+.first_part_box.box_part{
+    position: relative;
+    background: var(--light_gray);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transform: translateY(100px);
+    height: auto;
+    padding: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+.second_part_box.box_part{
+    width:inherit;
+    position: relative;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-100px);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+
+
+.movie_title{
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+    opacity: 0.75;
+    transition: 0.5s;
+}
+
+.movie_box:hover .movie_title{
+    opacity: 1;
+}
+
+
+
+.see_more_button{
+    margin-top: 20px;
+    height: 55px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--white) ;
+    background: var(--light_purple);
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    padding: 0px 15px;
+    transition: all 0.4s;
+}
+
+.see_more_button:hover{
+    background: var(--french_violet);
+}
