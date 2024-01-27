@@ -32,7 +32,7 @@ html{
 .movie_box:hover .first_part_box.box_part{
     background: var(--lighter_purple);
     transform: translateY(0);
-    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.8);
 }
 .movie_box:hover .second_part_box.box_part{
     transform: translateY(0);
