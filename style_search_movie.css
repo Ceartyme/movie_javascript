@@ -12,40 +12,26 @@ html{
 
     scroll-behavior: smooth;
 }
-.movie_box{
-    position: relative;
-}
-.movie_poster{
-    max-width: 200px;
-    max-height: 300px;
-}
 
-.container{
-    width: 100%;
+
+#container{
+    width: 90%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    padding: 30px;
+    padding: 5%;
 }
-
-.movie_box:hover .first_part_box.box_part{
-    background: var(--lighter_purple);
-    transform: translateY(0);
-    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.8);
-}
-.movie_box:hover .second_part_box.box_part{
-    transform: translateY(0);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-}
-
-.box_part{
+.movie_box{
+    position: relative;
     width: 300px;
-    height: 200px;
-    transition: 0.5s;
 }
+
+
+
 
 .first_part_box.box_part{
+    height: 370px;
     position: relative;
     background: var(--light_gray);
     display: flex;
@@ -53,41 +39,63 @@ html{
     justify-content: center;
     align-items: center;
     z-index: 1;
-    transform: translateY(100px);
-    height: auto;
+    transform: translateY(200px);
     padding: 20px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    transition: 0.5s;
 }
+.movie_box:hover .first_part_box.box_part{
+    background: var(--lighter_purple);
+    transform: translateY(0);
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.8);
+}
+
 .second_part_box.box_part{
-    width:inherit;
+    height: 350px;
     position: relative;
     background: var(--white);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    transform: translateY(-100px);
+    transform: translateY(-200px);
     padding: 20px;
     box-sizing: border-box;
+    transition: 0.5s;
+}
+.movie_box:hover .second_part_box.box_part{
+    transform: translateY(0);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
 }
 
 
 
-
 .movie_title{
+    max-width: 100%;
     font-size: 25px;
     font-weight: 700;
     text-align: center;
     opacity: 0.75;
     transition: 0.5s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .movie_box:hover .movie_title{
     opacity: 1;
+    white-space: inherit;
 }
 
 
-
+.movie_poster{
+    max-width: 200px;
+    max-height: 300px;
+}
+.movie_plot{
+    text-align: center;
+    max-height: 255px;
+}
 .see_more_button{
     margin-top: 20px;
     height: 55px;
