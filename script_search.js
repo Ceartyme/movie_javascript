@@ -1,18 +1,27 @@
 let bouton= document.getElementById("search_button");
 let lastresearch = "";
 let container = document.getElementById("container");
+let body = document.getElementById("body");
+let nbpage=1
+let bouton_here= false
+
 
 bouton.addEventListener("click", function(){
     let input = document.getElementById("search_input").value;
-    if(input != lastresearch){
-        research(input)
+    if(input != lastresearch && input != ""){
+        if (lastresearch != ""){
+            bouton_here=true
+        }
         lastresearch = input;
+        nbpage=1
+        research(input,1)
+
     }
 })
 
 
-function research(input) {
-    fetch(`http://www.omdbapi.com/?apikey=260740d0&s=${input}`)
+function research(input, nbpage) {
+    fetch(`http://www.omdbapi.com/?apikey=1ca1da21&s=${input}&page=${nbpage}`) /* clé 1 : 260740d0, clé 2 : 1ca1da21 */
     .then(response => {
     if (!response.ok) {
         throw new Error('uze')  
@@ -20,9 +29,13 @@ function research(input) {
     return response.json();
 })
     .then(data => {
+        console.log(bouton_here)
+        if (bouton_here == true){
+            const bouton_next = document.getElementsByClassName("bouton_next")
+            body.removeChild(bouton_next[0])
+        }
         if (data.Response == "False") {
-            container.innerHTML=""
-            console.log('test')
+            container.innerHTML="";
             let div_error = document.createElement("div");
             div_error.textContent=data.Error;
             container.appendChild(div_error);
@@ -32,7 +45,9 @@ function research(input) {
           return data  
 }})
     .then(data => {
-        container.innerHTML=""
+        if (nbpage == 1){
+            container.innerHTML=""
+        }
         let no_poster_movie_amount = 0
         for (let i = 0; i < data.Search.length; i++) {
             if (data.Search[i].Poster != "N/A"){
@@ -68,7 +83,7 @@ function research(input) {
             plot_title.textContent = "Plot :";
 
             let plot = document.createElement("div");
-            fetch(`http://www.omdbapi.com/?apikey=260740d0&t=${data.Search[i].Title}`)
+            fetch(`http://www.omdbapi.com/?apikey=1ca1da21&t=${data.Search[i].Title}`)  /* clé 1 : 260740d0, clé 2 : 1ca1da21 */
             .then(response => {
                 if (!response.ok) {
                     throw new Error('uze')  
@@ -91,26 +106,50 @@ function research(input) {
             see_more_button.classList.add("see_more_button");
             see_more_button.textContent = "See more";
 
+            let link = document.createElement("a");
+            link.href = `movie.html?Id=${data.Search[i].imdbID}`;
+
+            link.appendChild(see_more_button);
+
             second_part_box.appendChild(movie_plot);
-            second_part_box.appendChild(see_more_button);
+            second_part_box.appendChild(link);
 
             div.appendChild(second_part_box)
 
             container.appendChild(div)
-            }
+        }
+
             else{
                 no_poster_movie_amount+=1
             }
-            }
-        if (no_poster_movie_amount == data.Search.length){
-            let div = document.createElement("div");
-            div.textContent="Movie not found!";
-            container.appendChild(div);
+
+    }
+    if (data.totalResults/10 > nbpage){
+        let bouton_next = document.createElement("button");
+        bouton_next.classList.add("bouton_next");
+        bouton_next.textContent="Next";
+        body.appendChild(bouton_next);
+        bouton_next.onclick = function(){
+            nbpage+=1
+            bouton_here=true
+            research(input, nbpage)
+            
         }
     }
-
-)
+    if (no_poster_movie_amount == data.Search.length){
+        let div = document.createElement("div");
+        if (nbpage == 1){
+            div.textContent="No movie found!";
+        }
+        else{
+            div.textContent="No more movie found!";
+        }
+        container.appendChild(div);
+        throw new Error("Movie not found!")
+    }
+})
     .catch(error => {
         console.log(error)
     })
 }
+

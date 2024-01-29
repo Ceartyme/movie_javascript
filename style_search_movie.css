@@ -41,13 +41,13 @@ html{
     z-index: 1;
     transform: translateY(200px);
     padding: 20px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
     transition: 0.5s;
 }
 .movie_box:hover .first_part_box.box_part{
     background: var(--lighter_purple);
     transform: translateY(0);
-    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.6);
 }
 
 .second_part_box.box_part{
@@ -65,7 +65,7 @@ html{
 }
 .movie_box:hover .second_part_box.box_part{
     transform: translateY(0);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
 }
 
 
