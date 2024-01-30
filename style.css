@@ -160,7 +160,6 @@ section {
 .card {
   min-width: 70px;
   height: 100%;
-  margin-bottom: 100px;
   border-radius: 30px;
   overflow: hidden;
   display: flex;
