@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+
+html {
+  --french_violet : #8000B6;
+  --light_purple : #9462FF;
+  --lighter_purple : #C4A8FF;
+  --neon_blue : #0062FF;
+  --blue : #0088FF;
+  --white : #FFFFFF;
+  --light_blue : #0075FF;
+  --light_gray : #D9D9D9;
+  --black : #000000;
+  --hover__light_purple : #7b4fdb;
+  --transition-timing: 0.25s;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  height: auto;
+  width: 100%;
+  color: white;
+  background-color: #e9e9f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+header {
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  opacity: 0.8;
+  z-index: 100;
+}
+
+#search_bar{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#onshow {
+  top: 20%;
+  left: 5%;
+  font-size: 80px;
+  color: red;
+  padding: 10px;
+  filter: blur(2px);
+  opacity: 0.8;
+  border-radius: 20px;
+  position: absolute;
+}
+
+
+
+
+#search_input{
+  width: 75%;
+  height: 50px;
+  padding: 0 16px;
+  font-size: 20px;
+  border : 1px solid var(--light_purple);
+  border-radius: 10px 0 0 10px;
+  color: var(--black);
+  background-color: transparent;
+}
+#search_input:focus, #search_input:focus-visible{
+  border-color: var(--hover__light_purple);
+}
+#search_button{
+  width: 25%;
+  height: 51.6px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white) ;
+  background: var(--light_purple);
+  cursor: pointer;
+  padding: 0 6px;
+  border: 1px solid var(--light_purple);
+  border-radius: 0 10px 10px 0;
+  transition: background-color 0.4s ease-in-out;
+  text-align: center;
+}
+#search_button:hover{
+  background: var(--hover__light_purple);
+}
+
+li {
+  list-style: none;
+  cursor: pointer;
+  color: black;
+}
+
+.logo {
+  width: 10%;
+}
+
+#banner {
+  min-width: 100%;
+  width: 100%;
+  margin-top: 0px; 
+  border-radius: 100px;
+  }
+
+#suppimg {
+  filter: blur(3px);
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+#flexhead {
+  padding: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+
+.container {
+  width: 600px;
+  height: 400px;
+  display: flex;
+  gap: 10px;
+  margin-inline: 50px;
+  margin-top: 90px;
+}
+
+.card {
+  min-width: 70px;
+  height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  flex-grow: 1;
+  cursor: pointer;
+  position: relative;
+  transition: 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.card.active {
+  flex-grow: 100;
+}
+
+.card > .background {
+  position: absolute;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  transition: var(--transition-timing);
+}
+
+.card > .card-content {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  font-size: 10px;	
+  left: 10px;
+  right: 10px;
+  bottom: 20px;
+  overflow: hidden;
+  transition: var(--transition-timing);
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.9);
+  max-width: fit-content;
+  padding-right: 10px;
+  border-radius: 8px;
+}
+
+.card-content > .profile-image {
+  min-width: 45px;
+  max-width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.card-content .title {
+  white-space: pre;
+  margin-left: 10px;
+  transform: translateY(100%);
+  opacity: 0;
+  transition-delay: 0.3s;
+}
+
+a.active {
+  display: block;
+}
+
+.card.active .title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#section2 {
+  display: none;
+}
+
+.dropdown {
+  --color: #a5a5b0;
+  --size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  font-size: var(--size);
+  user-select: none;
+  fill: var(--color);
+  margin-top: 50px;
+  align-self: normal;
+}
+
+.dropdown .chevron-down {
+  position: absolute;
+  width: 3%;
+  animation: keyframes-return .5s;
+}
+
+.dropdown input:checked ~ .chevron-down {
+  animation: keyframes-rotate .5s;
+  transform: rotate(180deg);
+}
+
+.dropdown input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+@keyframes keyframes-rotate {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(-180deg);
+  }
+}
+
+@keyframes keyframes-return {
+  0% {
+    transform: rotate(-180deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
