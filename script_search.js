@@ -29,7 +29,6 @@ function research(input, nbpage) {
     return response.json();
 })
     .then(data => {
-        console.log(bouton_here)
         if (bouton_here == true){
             const bouton_next = document.getElementsByClassName("bouton_next")
             body.removeChild(bouton_next[0])
@@ -125,10 +124,15 @@ function research(input, nbpage) {
 
     }
     if (data.totalResults/10 > nbpage){
+        let div_button = document.createElement("div");
+        div_button.classList.add("div_button");
         let bouton_next = document.createElement("button");
         bouton_next.classList.add("bouton_next");
-        bouton_next.textContent="Next";
-        body.appendChild(bouton_next);
+        let bouton_next_div = document.createElement("div")
+        bouton_next_div.textContent="NEXT";
+        bouton_next.appendChild(bouton_next_div);
+        div_button.appendChild(bouton_next);
+        body.appendChild(div_button);
         bouton_next.onclick = function(){
             nbpage+=1
             bouton_here=true

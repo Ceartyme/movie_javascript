@@ -112,6 +112,23 @@ html{
     background: var(--french_violet);
 }
 
+header{
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+
+header>a{
+    min-width: 30%;
+    max-width: 60px;
+    min-height: 100%;   
+    margin: auto;
+}
+
+header>a>img{
+    width: 100%;
+    min-height: 100%;
+
+}
 
 #search_bar{
     width: 100%;
@@ -119,7 +136,7 @@ html{
     align-items: center;
 }
 #search_input{
-    width: 85%;
+    width: 80%;
     height: 50px;
     padding: 0 16px;
     font-size: 20px;
@@ -132,7 +149,8 @@ html{
     border-color: var(--hover__light_purple);
 }
 #search_button{
-    width: 15%;
+    width: 20%;
+    min-width: 100px;
     height: 51.6px;
     font-size: 20px;
     font-weight: 600;
@@ -147,4 +165,40 @@ html{
 }
 #search_button:hover{
     background: var(--hover__light_purple);
+}
+
+
+.div_button{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+
+}
+.bouton_next{
+    border-radius: 8px;
+    transition: 0.3s;
+    background-color: var(--light_purple);   
+    border: 2px solid var(--french_violet);
+    color: var(--french_violet);
+    font-weight: bolder;
+    font-size: x-large;
+    letter-spacing: 1.75px;
+    cursor: pointer;
+    box-shadow: 0 0 10px (var(--french_violet) 0.4);
+    padding: 8px 16px;
+}
+
+.bouton_next div{
+    transform: scale(0.8);
+    transition: 0.3s;
+}
+
+.bouton_next:hover div{
+    transform: scale(1);
+}
+.bouton_next:active{
+    transition: 0s;
+    box-shadow: 0 0 0 3px var(--french_violet);
 }
