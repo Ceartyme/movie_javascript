@@ -112,31 +112,50 @@ html{
     background: var(--french_violet);
 }
 
-header{
-    display: grid;
-    grid-template-columns: 15% 85%;
-}
-
-header>a{
-    min-width: 30%;
-    max-width: 60px;
-    min-height: 100%;   
-    margin: auto;
-}
-
-header>a>img{
+header {
+    background-color: rgb(255, 255, 255);
+    position: fixed;
     width: 100%;
-    min-height: 100%;
-
+    top: 0;
+    opacity: 0.8;
+    z-index: 100;
 }
 
-#search_bar{
-    width: 100%;
+#header1 {
+    list-style: none;
+    width: 50px;
+}
+
+#header2 {
+    list-style: none;
+    margin-left: 50px;
+}
+  
+  .logo {
+    width: 50%;
+    margin-left: 20px;
+}
+
+#flexhead {
+    padding: 0%;
+    margin-top: 25px;
+    margin-right: 250px;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
 }
+  
+
+#search_bar{
+    width: 465%;
+    display: flex;
+    align-items: center;
+    margin-left: 150px;
+}
+
 #search_input{
-    width: 80%;
+    width: 180%;
     height: 50px;
     padding: 0 16px;
     font-size: 20px;
@@ -168,7 +187,7 @@ header>a>img{
 }
 
 
-.div_button{
+#div_button{
     display: flex;
     width: 100%;
     align-items: center;

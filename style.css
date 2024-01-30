@@ -42,7 +42,7 @@ header {
   width: 100%;
   top: 0;
   opacity: 0.8;
-  z-index: 100;
+  z-index: 10000;
 }
 
 #search_bar{
@@ -123,6 +123,15 @@ a {
   color: white;
 }
 
+section {
+  background-color: var(--light_gray);
+}
+
+#bordersection {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
 #flexhead {
   padding: 0%;
   display: flex;
@@ -139,17 +148,19 @@ a {
 
 
 .container {
-  width: 600px;
-  height: 400px;
+  width: 700px;
+  height: 500px;
   display: flex;
   gap: 10px;
   margin-inline: 50px;
   margin-top: 90px;
+  margin-bottom: 50px;
 }
 
 .card {
   min-width: 70px;
   height: 100%;
+  margin-bottom: 100px;
   border-radius: 30px;
   overflow: hidden;
   display: flex;
@@ -158,6 +169,7 @@ a {
   cursor: pointer;
   position: relative;
   transition: 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  z-index: 100;
 }
 
 .card.active {

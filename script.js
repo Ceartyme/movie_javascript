@@ -48,14 +48,19 @@ getInfos(movieIds[i], posterElementId, titleElementId, linkElementId);
 
 document.addEventListener("DOMContentLoaded", function() {
   var checkbox = document.getElementById("button");
+  var section1 = document.getElementById("section1");
   var section2 = document.getElementById("section2");
+  section1.setAttribute("id", "bordersection");
 
   checkbox.addEventListener("change", function() {
       if (checkbox.checked) {
           section2.style.display = "none";
+          section1.setAttribute("id", "bordersection");
       
         } else {
           section2.style.display = "block";
+          section2.setAttribute("id", "bordersection");
+          section1.removeAttribute("id", "bordersection");
           scrollToBottom();
       }
   });
