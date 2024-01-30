@@ -12,12 +12,12 @@ document.querySelectorAll('.container').forEach(container => {
   });
 });
 
-getPoster()
+getInfos()
 
 const movieIds = ['tt6166392', 'tt15398776', 'tt6718170', 'tt6587046', 'tt17009710', 'tt4633694', 'tt5537002', 'tt16606592', 'tt1517268', 'tt0088939'];
 
 
-function getPoster(id, posterElementId, titleElementId, linkElementId) {
+function getInfos(id, posterElementId, titleElementId, linkElementId) {
   fetch(`http://www.omdbapi.com/?apikey=260740d0&i=${id}`)
   .then(response => {
       if (!response.ok) {
@@ -42,7 +42,7 @@ for (let i = 0; i < 10; i++) {
 const posterElementId = `poster${i + 1}`;
 const titleElementId = `title${i + 1}`;
 const linkElementId = `link${i + 1}`;
-getPoster(movieIds[i], posterElementId, titleElementId, linkElementId);
+getInfos(movieIds[i], posterElementId, titleElementId, linkElementId);
 }
 
 
@@ -72,3 +72,11 @@ function scrollToBottom() {
     behavior: 'smooth'
   });
 }
+
+
+let searchButton = document.getElementById('search_button');
+
+searchButton.addEventListener('click', function() {
+  let input = document.getElementById('search_input').value;
+  window.location.href = input!=""?`search.html?search=${input}`:`search.html`;
+})

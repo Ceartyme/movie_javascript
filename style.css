@@ -15,11 +15,6 @@ html {
   scroll-behavior: smooth;
 }
 
-p {
-  color: red;
-  position: absolute;
-}
-
 body {
   font-family: Inter, sans-serif;
   height: auto;
@@ -55,6 +50,22 @@ header {
   display: flex;
   align-items: center;
 }
+
+#onshow {
+  top: 20%;
+  left: 5%;
+  font-size: 80px;
+  color: red;
+  padding: 10px;
+  filter: blur(2px);
+  opacity: 0.8;
+  border-radius: 20px;
+  position: absolute;
+}
+
+
+
+
 #search_input{
   width: 75%;
   height: 50px;
