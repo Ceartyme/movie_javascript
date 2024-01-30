@@ -1,0 +1,204 @@
+html{
+    --french_violet : #8000B6;
+    --hover__light_purple : #7b4fdb;
+    --light_purple : #9462FF;
+    --lighter_purple : #C4A8FF;
+    --neon_blue : #0062FF;
+    --blue : #0088FF;
+    --white : #FFFFFF;
+    --light_blue : #0075FF;
+    --light_gray : #D9D9D9;
+    --black : #000000;
+
+
+    scroll-behavior: smooth;
+}
+
+
+#container{
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5%;
+}
+.movie_box{
+    position: relative;
+    width: 300px;
+}
+
+.first_part_box.box_part{
+    height: 370px;
+    position: relative;
+    background: var(--light_gray);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transform: translateY(200px);
+    padding: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    transition: 0.5s;
+}
+.movie_box:hover .first_part_box.box_part{
+    background: var(--lighter_purple);
+    transform: translateY(0);
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.6);
+}
+
+.second_part_box.box_part{
+    height: 350px;
+    position: relative;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    transform: translateY(-200px);
+    padding: 20px;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+.movie_box:hover .second_part_box.box_part{
+    transform: translateY(0);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+
+
+.movie_title{
+    max-width: 100%;
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+    opacity: 0.75;
+    transition: 0.5s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie_box:hover .movie_title{
+    opacity: 1;
+    white-space: inherit;
+}
+
+
+.movie_poster{
+    max-width: 200px;
+    max-height: 300px;
+}
+.movie_plot{
+    text-align: center;
+    max-height: 255px;
+}
+.see_more_button{
+    margin-top: 20px;
+    height: 55px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--white) ;
+    background: var(--light_purple);
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    padding: 0px 15px;
+    transition: all 0.4s;
+}
+
+.see_more_button:hover{
+    background: var(--french_violet);
+}
+
+header{
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+
+header>a{
+    min-width: 30%;
+    max-width: 60px;
+    min-height: 100%;   
+    margin: auto;
+}
+
+header>a>img{
+    width: 100%;
+    min-height: 100%;
+
+}
+
+#search_bar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+#search_input{
+    width: 80%;
+    height: 50px;
+    padding: 0 16px;
+    font-size: 20px;
+    border : 1px solid var(--light_purple);
+    border-radius: 10px 0 0 10px;
+    color: var(--black);
+    background-color: transparent;
+}
+#search_input:focus, #search_input:focus-visible{
+    border-color: var(--hover__light_purple);
+}
+#search_button{
+    width: 20%;
+    min-width: 100px;
+    height: 51.6px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white) ;
+    background: var(--light_purple);
+    cursor: pointer;
+    padding: 0 6px;
+    border: 1px solid var(--light_purple);
+    border-radius: 0 10px 10px 0;
+    transition: background-color 0.4s ease-in-out;
+    text-align: center;
+}
+#search_button:hover{
+    background: var(--hover__light_purple);
+}
+
+
+.div_button{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+
+}
+.bouton_next{
+    border-radius: 8px;
+    transition: 0.3s;
+    background-color: var(--light_purple);   
+    border: 2px solid var(--french_violet);
+    color: var(--french_violet);
+    font-weight: bolder;
+    font-size: x-large;
+    letter-spacing: 1.75px;
+    cursor: pointer;
+    box-shadow: 0 0 10px (var(--french_violet) 0.4);
+    padding: 8px 16px;
+}
+
+.bouton_next div{
+    transform: scale(0.8);
+    transition: 0.3s;
+}
+
+.bouton_next:hover div{
+    transform: scale(1);
+}
+.bouton_next:active{
+    transition: 0s;
+    box-shadow: 0 0 0 3px var(--french_violet);
+}
