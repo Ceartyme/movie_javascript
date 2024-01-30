@@ -168,7 +168,7 @@ header>a>img{
 }
 
 
-.div_button{
+#div_button{
     display: flex;
     width: 100%;
     align-items: center;

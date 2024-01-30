@@ -30,8 +30,8 @@ function research(input, nbpage) {
 })
     .then(data => {
         if (bouton_here == true){
-            const bouton_next = document.getElementsByClassName("bouton_next")
-            body.removeChild(bouton_next[0])
+            let div_button = document.getElementById("div_button")
+            body.removeChild(div_button)
         }
         if (data.Response == "False") {
             container.innerHTML="";
@@ -125,7 +125,7 @@ function research(input, nbpage) {
     }
     if (data.totalResults/10 > nbpage){
         let div_button = document.createElement("div");
-        div_button.classList.add("div_button");
+        div_button.id="div_button";
         let bouton_next = document.createElement("button");
         bouton_next.classList.add("bouton_next");
         let bouton_next_div = document.createElement("div")
