@@ -148,7 +148,7 @@ section {
 
 
 .container {
-  width: 700px;
+  width: 650px;
   height: 500px;
   display: flex;
   gap: 10px;
@@ -298,6 +298,7 @@ a.active {
     gap: 10px;
     margin-inline: 50px;
     margin-top: 90px;
+    overflow: hidden;
   }
   
   .card {
@@ -316,7 +317,7 @@ a.active {
     display: none;
   }
 
-  a.active {
+  .card.active a {
     display: block;
   }
 
@@ -357,6 +358,11 @@ a.active {
     display: flex;
     justify-content: center;
     align-items: center;
+    display: none;
+  }
+
+  .card.active .profile-image {
+    display: block;
   }
   
   
@@ -370,5 +376,16 @@ a.active {
 
   .dropdown {
     bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .container {
+    width: 200px;
+  }
+
+  .card {
+    width: 200px;
+    min-width: 200px;
   }
 }
