@@ -36,6 +36,15 @@ main {
   width: 100%;
 }
 
+#onshow {
+  font-size: 350%;
+  font-weight: bold;
+  color: var(--light_purple);
+  display: flex;
+  justify-content: center;
+  margin-top: 75px;
+}
+
 header {
   background-color: rgb(255, 255, 255);
   position: fixed;
@@ -290,6 +299,10 @@ a.active {
 @media only screen and (max-width: 768px) {
   .logo {
     width: 50%;
+  }
+
+  #onshow {
+    font-size: 200%;
   }
 
   #search_button{
