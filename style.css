@@ -51,21 +51,6 @@ header {
   align-items: center;
 }
 
-#onshow {
-  top: 20%;
-  left: 5%;
-  font-size: 80px;
-  color: red;
-  padding: 10px;
-  filter: blur(2px);
-  opacity: 0.8;
-  border-radius: 20px;
-  position: absolute;
-}
-
-
-
-
 #search_input{
   width: 75%;
   height: 50px;
@@ -75,10 +60,12 @@ header {
   border-radius: 10px 0 0 10px;
   color: var(--black);
   background-color: transparent;
+  text-overflow: ellipsis;
 }
 #search_input:focus, #search_input:focus-visible{
   border-color: var(--hover__light_purple);
 }
+
 #search_button{
   width: 25%;
   height: 51.6px;
@@ -93,14 +80,9 @@ header {
   transition: background-color 0.4s ease-in-out;
   text-align: center;
 }
+
 #search_button:hover{
   background: var(--hover__light_purple);
-}
-
-li {
-  list-style: none;
-  cursor: pointer;
-  color: black;
 }
 
 .logo {
@@ -234,7 +216,6 @@ a.active {
 
 .dropdown {
   --color: #a5a5b0;
-  --size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -289,7 +270,43 @@ a.active {
   }
 }
 
+@media only screen and (max-width: 850px) {
+  #search_bar {
+    margin-right: 50px;
+    width: 60%;
+  }
+
+  #flexhead {
+    padding: 0.5%;
+  }
+
+  .logo {
+    margin-left: 50px;
+    width: 11%;
+  }
+
+}
+
 @media only screen and (max-width: 768px) {
+  .logo {
+    width: 50%;
+  }
+
+  #search_button{
+    width: 40%;
+    height: 51.6px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white) ;
+    background: var(--light_purple);
+    cursor: pointer;
+    padding: 0 6px;
+    border: 1px solid var(--light_purple);
+    border-radius: 0 10px 10px 0;
+    transition: background-color 0.4s ease-in-out;
+    text-align: center;
+  }
+  
   .container {
     width: 300px;
     height: 650px;
@@ -374,8 +391,9 @@ a.active {
     transition-delay: 0.3s;
   }
 
-  .dropdown {
-    bottom: 20px;
+  .dropdown .chevron-down {
+    bottom: 0px;
+    width: 5%;
   }
 }
 
@@ -387,5 +405,9 @@ a.active {
   .card {
     width: 200px;
     min-width: 200px;
+  }
+
+  .dropdown .chevron-down {
+    width: 10%;
   }
 }
