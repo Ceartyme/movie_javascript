@@ -3,10 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style_search_movie.css">
+    <link rel="stylesheet" href="style_movie.css">
     <title>Document</title>
 </head>
 <body>
+    <nav id="flexhead">
+        <a href="index.html"><img src="img/logo.png" alt="logo du site" class="logo"></a>
+        <div id="search_bar">
+          <input type="text" id="search_input" placeholder="Search a movie/serie ..."  autocomplete="off">
+          <button type="submit" id="search_button">Search</button>
+      </div>
+    </nav>
+
+    <div id="contenu">
+        <h1 id="title"></h1>
+        <div id="poster">
+            <img id="poster_img" alt="">
+        </div>
+            <div id="partie1">
+            <div id="release"><p class="underline">Release date :</p><div class="inline_div to_change"></div></div>
+            </div>
+            <div id="partie2">
+                <div class="inline_div" id="type"><p class="underline">Type :</p><div class="inline_div to_change"> </div></div><div class="inline_div" id="genre"><p class="underline">Genre :</p><div class="inline_div to_change"> </div></div>
+                <div id="runtime"><p class="underline">Runtime :</p><div class="inline_div to_change"></div></div>
+                
+            </div>
+            <div id="partie3">
+                <div id="director"><p class="underline">Director : </p></div>
+                <div id="actors"><p class="underline">Actors : </p></div>
+                
+            </div>
+            <div id="partie4">
+                <div id="awards"><p class="underline">Awards :</p></div>
+            </div>
+            <div id="partie5">
+                <div id="ratings"><p class="underline">Ratings :</p></div>
+            </div>
+            <div id="partie6">
+                <div id="plot">
+                    <div class="underline">Plot :</div><div class="to_change"></div><br/><button id="button_plot">See More</button></div>
+            </div>
+        </div>
     <script src="script_movie.js"></script>
 </body>
 </html>
