@@ -150,7 +150,7 @@ header {
     grid-column-end: 4;
     margin-top: 25px;
 }
-#contenu>#partie6 a{
+#contenu>#partie6 button{
     margin-left: 80%;
 }
 #contenu ul{

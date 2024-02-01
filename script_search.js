@@ -21,7 +21,7 @@ bouton.addEventListener("click", function(){
 
 
 function research(input, nbpage) {
-    fetch(`http://www.omdbapi.com/?apikey=1ca1da21&s=${input}&page=${nbpage}`) /* clé 1 : 260740d0, clé 2 : 1ca1da21 */
+    fetch(`http://www.omdbapi.com/?apikey=1ca1da21&s=${input}&page=${nbpage}`)  
     .then(response => {
     if (!response.ok) {
         throw new Error('uze')  
