@@ -43,9 +43,11 @@ function display(id){
         liste_awards[2]=rajout
 
         for (let i = 0; i < liste_awards.length; i++) {
+            if (liste_awards[i]){
             let elem = document.createElement("li");
             elem.textContent=liste_awards[i];
             liste.appendChild(elem);
+            }
         }
         document.getElementById("awards").appendChild(liste)
         liste = document.createElement("ul")
