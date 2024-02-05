@@ -5,8 +5,14 @@ let body = document.getElementById("body");
 let nbpage=1
 let bouton_here= false
 
+document.addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        research_start()
+    }
+});
+bouton.addEventListener("click", research_start)
 
-bouton.addEventListener("click", function(){
+function research_start(){
     let input = document.getElementById("search_input").value;
     if(input != lastresearch && input != ""){
         if (lastresearch != ""){
@@ -17,8 +23,7 @@ bouton.addEventListener("click", function(){
         research(input,1)
 
     }
-})
-
+}
 
 function research(input, nbpage) {
     fetch(`http://www.omdbapi.com/?apikey=1ca1da21&s=${input}&page=${nbpage}`)  
@@ -29,6 +34,11 @@ function research(input, nbpage) {
     return response.json();
 })
     .then(data => {
+        if (empty == true){
+            empty=false
+            todelet= document.getElementById("todelete")
+            body.removeChild(todelet)
+        }
         if (bouton_here == true){
             let div_button = document.getElementById("div_button")
             body.removeChild(div_button)
@@ -61,6 +71,8 @@ function research(input, nbpage) {
             let movie_poster = document.createElement("img");
             movie_poster.classList.add("movie_poster");
             movie_poster.src = data.Search[i].Poster;
+            movie_poster.alt = "Poster de "+data.Search[i].Title
+            movie_poster.draggable = false
 
             let movie_title = document.createElement("div");
             movie_title.classList.add("movie_title");
@@ -162,9 +174,12 @@ function research(input, nbpage) {
 
 var searchParams = new URLSearchParams(window.location.search);
 var searchTerm = searchParams.get("search");
+let empty=true
+
 
 document.getElementById("search_input").value=searchTerm
 
 if (searchTerm){
     research(searchTerm, 1);
+
 }
