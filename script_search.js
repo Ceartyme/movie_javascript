@@ -158,14 +158,12 @@ function research(input, nbpage) {
 }
 
 
-function getIndexSearch(){
-    var searchValue = document.getElementById("search_input").value;
-    window.location.href = `search.html?search=${searchValue}`
-}
+
 
 var searchParams = new URLSearchParams(window.location.search);
 var searchTerm = searchParams.get("search");
-var searchValue = document.getElementById("search_input").value;
+
+document.getElementById("search_input").value=searchTerm
 
 if (searchTerm){
     research(searchTerm, 1);
