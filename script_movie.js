@@ -10,7 +10,7 @@ function display(id){
         return response.json();
     })
     .then(data => {
-        if (date.Title=="N/A"){
+        if (data.Title=="N/A"){
             document.getElementById("title").textContent="No title available"
         }
         else{
