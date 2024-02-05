@@ -10,62 +10,159 @@ function display(id){
         return response.json();
     })
     .then(data => {
+        if (date.Title=="N/A"){
+            document.getElementById("title").textContent="No title available"
+        }
+        else{
         document.getElementById("title").textContent=data.Title
+        }
         document.getElementById("poster_img").src=data.Poster
         document.getElementById("poster_img").alt="Poster de "+data.Title
-        document.getElementById("release").getElementsByClassName("to_change")[0].textContent=data.Released
-        document.getElementById("type").getElementsByClassName("to_change")[0].textContent=data.Type
-        document.getElementById("genre").getElementsByClassName("to_change")[0].textContent=data.Genre
-        document.getElementById("runtime").getElementsByClassName("to_change")[0].textContent=data.Runtime
-        
-        let liste= document.createElement("ul")
-        let liste_director= data.Director.split(",")
-        for (let i = 0; i < liste_director.length; i++) {
-            let elem = document.createElement("li")
-            elem.textContent=liste_director[i]
-            liste.appendChild(elem)
+        if (data.Released=="N/A"){
+            document.getElementById("released").textContent="No date available"
         }
-        
-        document.getElementById("director").appendChild(liste)
-
-        liste= document.createElement("ul")
-        let liste_actors= data.Actors.split(",")
-        for (let i = 0; i < liste_actors.length; i++) {
-            let elem = document.createElement("li")
-            elem.textContent=liste_actors[i]
-            liste.appendChild(elem)
-        }
-        document.getElementById("actors").appendChild(liste)
-        liste= document.createElement("ul")
-        liste_awards= data.Awards.split("&")
-        let rajout = liste_awards[1]
-        liste_awards= liste_awards[0].split(".")
-        liste_awards[2]=rajout
-
-        for (let i = 0; i < liste_awards.length; i++) {
-            if (liste_awards[i]){
-            let elem = document.createElement("li");
-            elem.textContent=liste_awards[i];
-            liste.appendChild(elem);
+        else{
+            let date = data.Released.split(" ")
+            let texte_date=date[0]+"/"
+            switch (date[1]) {
+                case "Jan":
+                    texte_date+="01/"
+                    break;
+                case "Feb":
+                    texte_date+="02/"
+                    break;
+                case "Mar":
+                    texte_date+="03/"
+                    break;
+                case "Apr":
+                    texte_date+="04/"
+                    break;
+                case "May":
+                    texte_date+="05/"
+                    break;
+                case "Jun":
+                    texte_date+="06/"
+                    break;
+                case "Jul":
+                    texte_date+="07/"
+                    break;
+                case "Aug":
+                    texte_date+="08/"
+                    break;
+                case "Sep":
+                    texte_date+="09/"
+                    break;
+                case "Oct":
+                    texte_date+="10/"
+                    break;
+                case "Nov":
+                    texte_date+="11/"
+                    break;
+                case "Dec":
+                    texte_date+="12/"
+                    break;
+                default:
+                    break;
             }
+            texte_date+=date[2]
+    
+            document.getElementById("release").getElementsByClassName("to_change")[0].textContent=texte_date
         }
-        document.getElementById("awards").appendChild(liste)
-        liste = document.createElement("ul")
-        for (let i = 0; i < data.Ratings.length; i++) {
-            let li = document.createElement("li")
-            let p = document.createElement("p")
-            p.classList.add("underline")
-            p.textContent=data.Ratings[i].Source
-            let q = document.createElement("p")
-            q.textContent = data.Ratings[i].Value
-            li.appendChild(p)
-            li.appendChild(q)
-            liste.appendChild(li)
+        if (data.Type=="N/A"){
+            document.getElementById("type").textContent="No type available"
         }
-        document.getElementById("ratings").appendChild(liste)
-        let plot = document.getElementById("plot")
-        let changeplot = plot.getElementsByClassName("to_change")[0]
-        changeplot.textContent=data.Plot
+        else{
+            document.getElementById("type").getElementsByClassName("to_change")[0].textContent=data.Type
+        }
+        if (data.Genre=="N/A"){
+            document.getElementById("genre").textContent="No genre available"
+        }
+        else{
+            document.getElementById("genre").getElementsByClassName("to_change")[0].textContent=data.Genre
+        }
+        if (data.Runtime=="N/A"){
+            document.getElementById("runtime").textContent="No runtime available"
+        }
+        else{
+        document.getElementById("runtime").getElementsByClassName("to_change")[0].textContent=data.Runtime
+        }
+        if (data.Director=="N/A"){
+            document.getElementById("director").textContent="No director available"
+        }
+        else{
+            let liste= document.createElement("ul")
+            let liste_director= data.Director.split(",")
+            for (let i = 0; i < liste_director.length; i++) {
+                let elem = document.createElement("li")
+                elem.textContent=liste_director[i]
+                liste.appendChild(elem)
+            }
+            
+            document.getElementById("director").appendChild(liste)
+        }
+
+        if (data.Actors=="N/A"){
+            document.getElementById("actors").textContent="No actors available"
+        }
+        else{
+            liste= document.createElement("ul")
+            let liste_actors= data.Actors.split(",")
+            for (let i = 0; i < liste_actors.length; i++) {
+                let elem = document.createElement("li")
+                elem.textContent=liste_actors[i]
+                liste.appendChild(elem)
+            }
+            document.getElementById("actors").appendChild(liste)
+        }
+
+        if (data.Awards=="N/A"){
+            document.getElementById("awards").textContent="No awards available"
+        }
+        else{
+            liste= document.createElement("ul")
+            liste_awards= data.Awards.split("&")
+            let rajout = liste_awards[1]
+            liste_awards= liste_awards[0].split(".")
+            liste_awards[2]=rajout
+
+            for (let i = 0; i < liste_awards.length; i++) {
+                if (liste_awards[i]){
+                let elem = document.createElement("li");
+                elem.textContent=liste_awards[i];
+                liste.appendChild(elem);
+                }
+            }
+            document.getElementById("awards").appendChild(liste)
+        }
+
+        if (data.Ratings=="N/A"){
+            document.getElementById("ratings").textContent="No ratings available"
+        }
+        else{
+            liste = document.createElement("ul")
+            for (let i = 0; i < data.Ratings.length; i++) {
+                let li = document.createElement("li")
+                let p = document.createElement("p")
+                p.classList.add("underline")
+                p.textContent=data.Ratings[i].Source
+                let q = document.createElement("p")
+                q.textContent = data.Ratings[i].Value
+                li.appendChild(p)
+                li.appendChild(q)
+                liste.appendChild(li)
+            }
+            document.getElementById("ratings").appendChild(liste)
+        }
+
+        if (data.Plot=="N/A"){
+            document.getElementById("plot").textContent="No plot available"
+        }
+        else{
+            let plot = document.getElementById("plot")
+            let changeplot = plot.getElementsByClassName("to_change")[0]
+            changeplot.textContent=data.Plot
+        }
+
     })
 }
 
