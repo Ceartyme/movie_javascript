@@ -19,7 +19,7 @@ function display(id){
         document.getElementById("poster_img").src=data.Poster
         document.getElementById("poster_img").alt="Poster de "+data.Title
         if (data.Released=="N/A"){
-            document.getElementById("released").textContent="No date available"
+            document.getElementById("release").getElementsByClassName("to_change")[0].textContent="No date available"
         }
         else{
             let date = data.Released.split(" ")
@@ -69,19 +69,19 @@ function display(id){
             document.getElementById("release").getElementsByClassName("to_change")[0].textContent=texte_date
         }
         if (data.Type=="N/A"){
-            document.getElementById("type").textContent="No type available"
+            document.getElementById("type").getElementsByClassName("to_change")[0].textContent="No type available"
         }
         else{
             document.getElementById("type").getElementsByClassName("to_change")[0].textContent=data.Type
         }
         if (data.Genre=="N/A"){
-            document.getElementById("genre").textContent="No genre available"
+            document.getElementById("genre").getElementsByClassName("to_change")[0].textContent="No genre available"
         }
         else{
             document.getElementById("genre").getElementsByClassName("to_change")[0].textContent=data.Genre
         }
         if (data.Runtime=="N/A"){
-            document.getElementById("runtime").textContent="No runtime available"
+            document.getElementById("runtime").getElementsByClassName("to_change")[0].textContent="No runtime available"
         }
         else{
         document.getElementById("runtime").getElementsByClassName("to_change")[0].textContent=data.Runtime
@@ -155,7 +155,7 @@ function display(id){
         }
 
         if (data.Plot=="N/A"){
-            document.getElementById("plot").textContent="No plot available"
+            document.getElementById("plot").getElementsByClassName("to_change")[0].textContent="No plot available"
         }
         else{
             let plot = document.getElementById("plot")
