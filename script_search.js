@@ -29,6 +29,11 @@ function research(input, nbpage) {
     return response.json();
 })
     .then(data => {
+        if (empty == true){
+            empty=false
+            todelet= document.getElementById("todelete")
+            body.removeChild(todelet)
+        }
         if (bouton_here == true){
             let div_button = document.getElementById("div_button")
             body.removeChild(div_button)
@@ -162,9 +167,12 @@ function research(input, nbpage) {
 
 var searchParams = new URLSearchParams(window.location.search);
 var searchTerm = searchParams.get("search");
+let empty=true
+
 
 document.getElementById("search_input").value=searchTerm
 
 if (searchTerm){
     research(searchTerm, 1);
+
 }
