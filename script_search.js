@@ -5,8 +5,14 @@ let body = document.getElementById("body");
 let nbpage=1
 let bouton_here= false
 
+document.addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        research_start()
+    }
+});
+bouton.addEventListener("click", research_start)
 
-bouton.addEventListener("click", function(){
+function research_start(){
     let input = document.getElementById("search_input").value;
     if(input != lastresearch && input != ""){
         if (lastresearch != ""){
@@ -17,8 +23,7 @@ bouton.addEventListener("click", function(){
         research(input,1)
 
     }
-})
-
+}
 
 function research(input, nbpage) {
     fetch(`http://www.omdbapi.com/?apikey=1ca1da21&s=${input}&page=${nbpage}`)  

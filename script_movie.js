@@ -90,7 +90,14 @@ button.addEventListener("click", function(){
 
 let searchButton = document.getElementById('search_button');
 
-searchButton.addEventListener('click', function() {
+searchButton.addEventListener('click', search);
+document.addEventListener('keyup', function(event) {
+  if (event.key === "Enter") {
+    search();
+  }
+})
+
+function search() {
   let input = document.getElementById('search_input').value;
   window.location.href = input!=""?`search.html?search=${input}`:`search.html`;
-})
+}
