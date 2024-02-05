@@ -66,6 +66,8 @@ function research(input, nbpage) {
             let movie_poster = document.createElement("img");
             movie_poster.classList.add("movie_poster");
             movie_poster.src = data.Search[i].Poster;
+            movie_poster.alt = "Poster de "+data.Search[i].Title
+            movie_poster.draggable = false
 
             let movie_title = document.createElement("div");
             movie_title.classList.add("movie_title");
