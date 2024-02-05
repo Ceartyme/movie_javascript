@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 html{
     --french_violet : #8000B6;
     --hover__light_purple : #7b4fdb;
@@ -9,11 +11,20 @@ html{
     --light_blue : #0075FF;
     --light_gray : #D9D9D9;
     --black : #000000;
-
-
     scroll-behavior: smooth;
 }
 
+h1 {
+    color: var(--french_violet);
+    font-weight: bold;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.underline {
+    color: var(--light_purple);
+    font-weight: bold;
+    font-size: 18px;
+}
 
 
 header {
@@ -36,7 +47,8 @@ header {
 }
   
   .logo {
-    width: 50%;
+    width: 70px;
+    min-width: 50px;
     margin-left: 20px;
 }
 
@@ -52,10 +64,11 @@ header {
   
 
 #search_bar{
-    width: 465%;
+    width: 300%;
+    min-width: 100%;
     display: flex;
     align-items: center;
-    margin-left: 150px;
+    margin-left: 70px;
 }
 
 #search_input{
@@ -99,12 +112,16 @@ header {
     display: grid;
     grid-template-columns:  auto auto auto;
     grid-template-rows: auto auto auto auto auto auto auto;
+    background-color: var(--light_gray);
+    padding-bottom: 50px;
+    padding-top: 50px;
+    padding-left: 50px;
+    border-radius: 20px;
 }
 #contenu>#title{
     grid-column-start: 1;
     grid-column-end: 4;
     text-align: center;
-    text-decoration: underline;
 }
 #contenu>#poster{
     grid-row-start: 2;
@@ -164,6 +181,51 @@ header {
 #plot>div{
     margin-bottom: 15px;
 }
-.underline{
-    text-decoration: underline;
+
+#poster_img {
+    border-radius: 15px;
+}
+
+#button_plot{
+    border-radius: 8px;
+    transition: 0.3s;
+    background-color: var(--light_purple);   
+    border: 1px solid var(--french_violet);
+    color: var(--french_violet);
+    font-weight: bolder;
+    font-size: 15px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 0 10px (var(--french_violet) 0.4);
+    padding: 8px 16px;
+}
+
+#button_plot div{
+    transform: scale(0.8);
+    transition: 0.3s;
+}
+
+#button_plot:hover {
+    transition: 0s;
+    box-shadow: 0 0 0 3px var(--french_violet);
+}
+
+@media only screen and (max-width: 800px) {
+    #contenu {
+        background-color: white;
+        padding-left: 0px;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    #search_bar {
+        margin-right: 50px;
+        width: 100%;
+      }
+    
+      #flexhead {
+        padding: 0.5%;
+      }
+
+    
 }

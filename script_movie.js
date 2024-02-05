@@ -143,7 +143,6 @@ function display(id){
             for (let i = 0; i < data.Ratings.length; i++) {
                 let li = document.createElement("li")
                 let p = document.createElement("p")
-                p.classList.add("underline")
                 p.textContent=data.Ratings[i].Source
                 let q = document.createElement("p")
                 q.textContent = data.Ratings[i].Value
