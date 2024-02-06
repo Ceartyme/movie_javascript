@@ -50,15 +50,22 @@ document.addEventListener("DOMContentLoaded", function() {
   var checkbox = document.getElementById("button");
   var section1 = document.getElementById("section1");
   var section2 = document.getElementById("section2");
+  var container = document.getElementsByClassName("container")[1];
   section1.setAttribute("id", "bordersection");
 
   checkbox.addEventListener("change", function() {
       if (checkbox.checked) {
-          section2.style.display = "none";
+          container.style.display = "none";
+          section2.style.height = 0+"px";
           section1.setAttribute("id", "bordersection");
+          if (section2.id=="bordersection"){
+            section2.removeAttribute("id", "bordersection");
+          }
+          
       
         } else {
-          section2.style.display = "block";
+          container.style.display = "flex";
+          section2.style.height = 640+"px";
           section2.setAttribute("id", "bordersection");
           section1.removeAttribute("id", "bordersection");
           scrollToBottom();

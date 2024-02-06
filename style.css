@@ -172,6 +172,7 @@ section {
   width: 100%;
   z-index: -1;
   transition: var(--transition-timing);
+  cursor:initial;
 }
 
 .card > .card-content {
@@ -218,8 +219,13 @@ a.active {
   transform: translateY(0);
 }
 
+
+
 #section2 {
   display: none;
+}
+.section2 {
+  transition : height 0.75s;
 }
 
 .dropdown {
