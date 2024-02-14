@@ -1,4 +1,4 @@
 # movie_javascript
-projet en javascript
 
-répository github : https://github.com/Ceartyme/movie_javascript
+
+lien de l'api utilisée : https://www.omdbapi.com/
